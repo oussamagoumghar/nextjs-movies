@@ -53,7 +53,7 @@ const Poster: React.FC<ComponentProps<"div">> = ({
   )
 }
 
-const Title: React.FC<ComponentProps<"h1">> = ({ className, ...props }) => {
+const Title: React.FC<ComponentProps<"h1">> = ({ className, children, ...props }) => {
   return (
     <h1
       className={cn(
@@ -61,7 +61,9 @@ const Title: React.FC<ComponentProps<"h1">> = ({ className, ...props }) => {
         className
       )}
       {...props}
-    />
+    >
+      {children}
+    </h1>
   )
 }
 
