@@ -28,6 +28,7 @@ export const MediaTrailerDialog: React.FC<MediaTrailerDialogProps> = ({
             src={yt.video(trailer.key, true)}
             allow="autoplay; encrypted-media"
             allowFullScreen={true}
+            title="Trailer Video"
           />
         </DialogContent>
       )}
