@@ -10,6 +10,6 @@ export const metadata = {
   title: "Watch",
 }
 
-export default function DetailWatch({ params }: DetailWatchProps) {
+export default function DetailWatch({ params }: Readonly<DetailWatchProps>) {
   return <MediaWatchProviders id={params.id} type="tv" />
 }
