@@ -56,6 +56,16 @@ export const TrendCarousel: React.FC<TrendCarouselProps> = ({
     api?.scrollPrev()
   }
 
+  function getCard(item: MovieWithMediaType | TvShowWithMediaType | PersonWithMediaType) {
+    if (item.media_type === "tv") {
+      return <TvCard key={item.id} {...item} />
+    }
+    if (item.media_type === "person") {
+      return <PersonCard key={item.id} {...item} />
+    }
+    return <MovieCard key={item.id} {...item} />
+  }
+
   return (
     <Carousel opts={{ dragFree: true }} setApi={setApi}>
       <div className="mb-4 flex items-center justify-between gap-4 md:justify-start">
@@ -95,13 +105,7 @@ export const TrendCarousel: React.FC<TrendCarouselProps> = ({
             key={item.id}
             className="basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5"
           >
-            {item.media_type === "tv" ? (
-              <TvCard key={item.id} {...item} />
-            ) : item.media_type === "person" ? (
-              <PersonCard key={item.id} {...item} />
-            ) : (
-              <MovieCard key={item.id} {...item} />
-            )}
+            {getCard(item)}
           </CarouselItem>
         ))}
       </CarouselContent>
