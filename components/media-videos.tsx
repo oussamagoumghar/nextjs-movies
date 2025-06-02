@@ -34,6 +34,7 @@ export const MediaVideos: React.FC<MediaVideosProps> = async ({ videos }) => {
             <iframe
               className="aspect-square size-full rounded-md sm:aspect-video"
               src={yt.video(key, true)}
+              title={name}
               allow="autoplay; encrypted-media"
               allowFullScreen={true}
             />
