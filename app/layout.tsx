@@ -28,10 +28,10 @@ export const metadata: Metadata = {
 }
 
 interface RootLayoutProps {
-  children: React.ReactNode
+  readonly children: React.ReactNode
 }
 
-export default function RootLayout({ children }: RootLayoutProps) {
+export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head />
@@ -45,7 +45,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <ThemeProvider attribute="class" defaultTheme="dark">
           <div
             className="relative flex min-h-screen flex-col bg-background"
-            vaul-drawer-wrapper=""
           >
             <GridBg />
             <SiteHeader />
