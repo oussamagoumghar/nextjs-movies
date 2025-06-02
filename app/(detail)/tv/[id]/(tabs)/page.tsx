@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/table"
 import { MediaBackdrop } from "@/components/media-backdrop"
 
-export default async function Detail({ params }: { params: { id: string } }) {
+export default async function Detail({ params }: Readonly<{ params: { id: string } }>) {
   const {
     first_air_date,
     last_air_date,
