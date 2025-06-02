@@ -90,7 +90,10 @@ export function pluralize(count: number, singular: string, plural: string) {
 }
 
 export function joiner(arr: any[], key: string) {
-  return arr.length ? arr.map((item) => item[key]).join(", ") : "—"
+  if (arr.length) {
+    return arr.map((item) => item[key]).join(", ")
+  }
+  return "—"
 }
 
 export function formatValue(value: any, formatter?: any) {
