@@ -13,7 +13,7 @@ export async function generateMetadata() {
   }
 }
 
-export default async function AiringToday({ searchParams }: ListPageProps) {
+export default async function AiringToday({ searchParams }: Readonly<ListPageProps>) {
   return (
     <TvList
       list="airing_today"
