@@ -7,11 +7,8 @@ import { MediaPoster } from "@/components/media-poster"
 import { MediaRating } from "@/components/media-rating"
 
 interface DetailSeasonsProps {
-  params: {
+  readonly params: {
     id: string
-  }
-  searchParams: {
-    s: string
   }
 }
 
@@ -22,7 +19,7 @@ export const metadata = {
   },
 }
 
-export default async function DetailSeasons({ params }: DetailSeasonsProps) {
+export default async function DetailSeasons({ params }: Readonly<DetailSeasonsProps>) {
   const { seasons } = await tmdb.tv.detail({
     id: params.id,
   })
