@@ -59,7 +59,6 @@ export const DiscoverFilterProvider: React.FC<DiscoverFilterGenreProps> = ({
       <Popover>
         <PopoverTrigger
           className={cn(value ? "text-foreground" : "text-muted-foreground")}
-          role="combobox"
           asChild
         >
           <Button
