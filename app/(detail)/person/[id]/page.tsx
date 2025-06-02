@@ -19,8 +19,8 @@ import { PersonCreditsTable } from "@/components/person-credits-table"
 import { TvCard } from "@/components/tv-card"
 
 interface DetailProps {
-  params: {
-    id: string
+  readonly params: {
+    readonly id: string
   }
 }
 
