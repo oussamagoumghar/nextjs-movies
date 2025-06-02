@@ -23,6 +23,13 @@ export const SearchResultCard: React.FC<SearchResultCardProps> = ({
   const isPerson = media_type === "person"
   const isMovie = media_type === "movie"
 
+  function getExcerpt() {
+    if (isPerson) {
+      return `Known for ${media.known_for_department}`
+    }
+    return format.year(isMovie ? media.release_date : media.first_air_date)
+  }
+
   return (
     <Link href={`/${media_type}/${id}`} prefetch={false}>
       <MediaCard.Root>
@@ -47,11 +54,7 @@ export const SearchResultCard: React.FC<SearchResultCardProps> = ({
           </MediaCard.Title>
 
           <MediaCard.Excerpt>
-            {isPerson
-              ? `Known for ${media.known_for_department}`
-              : format.year(
-                  isMovie ? media.release_date : media.first_air_date
-                )}
+            {getExcerpt()}
           </MediaCard.Excerpt>
         </MediaCard.Content>
       </MediaCard.Root>
