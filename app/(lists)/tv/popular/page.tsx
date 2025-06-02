@@ -3,7 +3,7 @@ import { pages } from "@/config"
 import { TvList } from "@/components/tv-list"
 
 interface ListPageProps {
-  searchParams?: Record<string, string>
+  readonly searchParams?: Record<string, string>
 }
 
 export async function generateMetadata() {
