@@ -61,7 +61,9 @@ const Title: React.FC<ComponentProps<"h1">> = ({ className, ...props }) => {
         className
       )}
       {...props}
-    />
+    >
+      {props.children}
+    </h1>
   )
 }
 
