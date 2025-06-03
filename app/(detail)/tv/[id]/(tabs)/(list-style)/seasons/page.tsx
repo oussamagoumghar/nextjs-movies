@@ -10,9 +10,6 @@ interface DetailSeasonsProps {
   params: {
     id: string
   }
-  searchParams: {
-    s: string
-  }
 }
 
 export const metadata = {
@@ -22,7 +19,7 @@ export const metadata = {
   },
 }
 
-export default async function DetailSeasons({ params }: DetailSeasonsProps) {
+export default async function DetailSeasons({ params }: Readonly<DetailSeasonsProps>) {
   const { seasons } = await tmdb.tv.detail({
     id: params.id,
   })
