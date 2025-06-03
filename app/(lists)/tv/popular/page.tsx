@@ -13,7 +13,7 @@ export async function generateMetadata() {
   }
 }
 
-export default async function Popular({ searchParams }: ListPageProps) {
+export default async function Popular({ searchParams }: Readonly<ListPageProps>) {
   return (
     <TvList
       list="popular"
