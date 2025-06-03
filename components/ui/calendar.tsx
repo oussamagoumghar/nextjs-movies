@@ -14,6 +14,39 @@ import {
 
 export type CalendarProps = React.ComponentProps<typeof DayPicker>
 
+function CalendarDropdown({ children, value, caption, onChange, name, ...props }) {
+  const options = children as any[]
+
+  const handleChange = (value: string) => {
+    onChange?.({
+      target: { value },
+    } as React.ChangeEvent<HTMLSelectElement>)
+  }
+
+  return (
+    <Select
+      defaultValue={value?.toString()}
+      onValueChange={handleChange}
+      {...props}
+    >
+      <SelectTrigger>
+        <SelectValue />
+      </SelectTrigger>
+
+      <SelectContent>
+        {options.map((child) => (
+          <SelectItem
+            key={child.props.value.toString()}
+            value={child.props.value.toString()}
+          >
+            {child.props.children}
+          </SelectItem>
+        ))}
+      </SelectContent>
+    </Select>
+  )
+}
+
 function Calendar({
   className,
   classNames,
@@ -65,38 +98,7 @@ function Calendar({
       components={{
         IconLeft: ({ ...props }) => <ChevronLeft className="size-4" />,
         IconRight: ({ ...props }) => <ChevronRight className="size-4" />,
-        Dropdown: ({ children, value, caption, onChange, name, ...props }) => {
-          const options = children as any[]
-
-          const handleChange = (value: string) => {
-            onChange?.({
-              target: { value },
-            } as React.ChangeEvent<HTMLSelectElement>)
-          }
-
-          return (
-            <Select
-              defaultValue={value?.toString()}
-              onValueChange={handleChange}
-              {...props}
-            >
-              <SelectTrigger>
-                <SelectValue />
-              </SelectTrigger>
-
-              <SelectContent>
-                {options.map((child) => (
-                  <SelectItem
-                    key={child.props.value.toString()}
-                    value={child.props.value.toString()}
-                  >
-                    {child.props.children}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          )
-        },
+        Dropdown: CalendarDropdown,
       }}
       {...props}
     />
