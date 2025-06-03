@@ -12,7 +12,7 @@ export const metadata = {
   title: "Images",
 }
 
-export default async function DetailImages({ params }: DetailImagesProps) {
+export default async function DetailImages({ params }: Readonly<DetailImagesProps>) {
   const { posters, backdrops } = await tmdb.tv.images({
     id: params.id,
     langs: "en",
