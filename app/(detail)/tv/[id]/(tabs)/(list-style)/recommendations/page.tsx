@@ -19,7 +19,7 @@ export const metadata = {
 export default async function DetailRecommendations({
   params,
   searchParams,
-}: DetailRecommendationsProps) {
+}: Readonly<DetailRecommendationsProps>) {
   const {
     results: tvShows,
     total_pages: totalPages,
