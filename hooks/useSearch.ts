@@ -38,21 +38,21 @@ export const useSearch = (auto: boolean = true) => {
         search_term: value,
       })
 
-      return
+      
     }
 
     if (!page && pathname === "/search") {
       router.replace("/", {
         scroll: true,
       })
-      return
+      
     }
 
     if (page && pathname !== page) {
       router.replace(page, {
         scroll: true,
       })
-      return
+      
     }
   }
 
