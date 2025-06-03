@@ -13,7 +13,7 @@ export async function generateMetadata() {
   }
 }
 
-export default function Popular({ searchParams }: ListPageProps) {
+export default function Popular({ searchParams }: Readonly<ListPageProps>) {
   return (
     <PersonList
       list="popular"
