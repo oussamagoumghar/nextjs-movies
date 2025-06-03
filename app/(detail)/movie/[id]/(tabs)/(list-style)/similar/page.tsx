@@ -19,7 +19,7 @@ export const metadata = {
 export default async function DetailSimilar({
   params,
   searchParams,
-}: DetailSimilarProps) {
+}: Readonly<DetailSimilarProps>) {
   const {
     results: movies,
     total_pages: totalPages,
