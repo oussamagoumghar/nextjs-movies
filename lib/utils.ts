@@ -118,3 +118,11 @@ export function filterDiscoverParams(
     )
   )
 }
+
+// Fixed nested ternary
+export function getReadableStatus(job) {
+  if (job.isRunning()) {
+    return "Running";
+  }
+  return job.hasErrors() ? "Failed" : "Succeeded ";
+}
