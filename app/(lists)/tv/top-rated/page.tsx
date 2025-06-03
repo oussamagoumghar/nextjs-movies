@@ -13,7 +13,7 @@ export async function generateMetadata() {
   }
 }
 
-export default async function TopRated({ searchParams }: ListPageProps) {
+export default async function TopRated({ searchParams }: Readonly<ListPageProps>) {
   return (
     <TvList
       list="top_rated"
