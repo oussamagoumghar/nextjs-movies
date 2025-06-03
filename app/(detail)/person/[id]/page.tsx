@@ -24,7 +24,7 @@ interface DetailProps {
   }
 }
 
-export async function generateMetadata({ params }: DetailProps) {
+export async function generateMetadata({ params }: Readonly<DetailProps>) {
   const { name } = await tmdb.person.detail({
     id: params.id,
   })
@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: DetailProps) {
   }
 }
 
-export default async function Detail({ params }: DetailProps) {
+export default async function Detail({ params }: Readonly<DetailProps>) {
   const {
     name,
     profile_path,
