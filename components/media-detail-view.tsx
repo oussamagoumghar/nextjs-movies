@@ -86,9 +86,10 @@ const Title: React.FC<ComponentProps<"h1">> = ({ className, ...props }) => {
   )
 }
 
+// Fixed: Changed from rendering <div> to rendering <p> for accessibility and heading content
 const Overview: React.FC<ComponentProps<"p">> = ({ className, ...props }) => {
   return (
-    <div
+    <p
       className={cn("space-y-4 text-muted-foreground xl:text-lg", className)}
       {...props}
     />
