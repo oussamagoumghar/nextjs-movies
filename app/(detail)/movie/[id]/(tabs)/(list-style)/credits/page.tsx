@@ -14,7 +14,7 @@ export const metadata = {
   title: "Credits",
 }
 
-export default async function DetailCredits({ params }: DetailCreditsProps) {
+export default async function DetailCredits({ params }: Readonly<DetailCreditsProps>) {
   const { cast, crew } = await tmdb.movie.credits({ id: params.id })
 
   return (
