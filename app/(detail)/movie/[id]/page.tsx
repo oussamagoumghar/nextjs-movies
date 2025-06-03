@@ -18,7 +18,7 @@ interface DetailProps {
   }
 }
 
-export default async function Detail({ params }: DetailProps) {
+export default async function Detail({ params }: Readonly<DetailProps>) {
   const {
     status,
     release_date,
