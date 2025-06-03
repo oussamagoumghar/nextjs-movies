@@ -14,13 +14,13 @@ import { MediaTrailerDialog } from "@/components/media-trailer-dialog"
 import { ScrollFixer } from "@/components/scroll-fixer"
 
 interface DetailLayoutProps {
-  params: {
-    id: string
+  readonly params: {
+    readonly id: string
   }
-  children: React.ReactNode
+  readonly children: React.ReactNode
 }
 
-export async function generateMetadata({ params }: DetailLayoutProps) {
+export async function generateMetadata({ params }: Readonly<DetailLayoutProps>) {
   const { name } = await tmdb.tv.detail({
     id: params.id,
   })
@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: DetailLayoutProps) {
 export default async function DetailLayout({
   params,
   children,
-}: DetailLayoutProps) {
+}: Readonly<DetailLayoutProps>) {
   const {
     id,
     name,
