@@ -12,7 +12,7 @@ interface DetailProps {
   }
 }
 
-export default async function Detail({ params }: DetailProps) {
+export default async function Detail({ params }: Readonly<DetailProps>) {
   const { parts } = await tmdb.collection.details({
     id: params.id,
   })
