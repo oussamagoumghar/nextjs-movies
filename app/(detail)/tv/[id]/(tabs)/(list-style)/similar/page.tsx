@@ -4,11 +4,11 @@ import { ListPagination } from "@/components/list-pagination"
 import { TvCard } from "@/components/tv-card"
 
 interface DetailSimilarProps {
-  params: {
-    id: string
+  readonly params: {
+    readonly id: string
   }
-  searchParams: {
-    page: string
+  readonly searchParams: {
+    readonly page: string
   }
 }
 
