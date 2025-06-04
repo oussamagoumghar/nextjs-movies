@@ -81,7 +81,7 @@ export const SiteFooter: React.FC<ComponentProps<"footer">> = () => {
                   className="border-b text-foreground"
                 >
                   TMDB
-                </a>
+                </a>{" "}
                 .
               </p>
             </div>
