@@ -20,7 +20,7 @@ export async function generateMetadata() {
   }
 }
 
-export default async function Discover({ searchParams }: ListPageProps) {
+export default async function Discover({ searchParams }: Readonly<ListPageProps>) {
   const region = cookies().get("region")?.value ?? "US"
 
   const {
