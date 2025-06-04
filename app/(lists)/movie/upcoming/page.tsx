@@ -13,7 +13,7 @@ export async function generateMetadata() {
   }
 }
 
-export default async function Upcoming({ searchParams }: ListPageProps) {
+export default async function Upcoming({ searchParams }: Readonly<ListPageProps>) {
   return (
     <MovieList
       list="upcoming"
