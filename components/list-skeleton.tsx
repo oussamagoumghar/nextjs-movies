@@ -10,7 +10,7 @@ export const ListSkeleton = () => (
 
     <div className="grid-list">
       {Array.from({ length: 20 }).map((_, i) => (
-        <Skeleton key={i} className="aspect-poster w-full rounded-md" />
+        <Skeleton key={`list-skeleton-${i}`} className="aspect-poster w-full rounded-md" />
       ))}
     </div>
   </div>
