@@ -19,7 +19,7 @@ export const metadata = {
 export default async function DetailReviews({
   params,
   searchParams,
-}: DetailReviewsProps) {
+}: Readonly<DetailReviewsProps>) {
   const { results, page, total_pages } = await tmdb.movie.reviews({
     id: params.id,
     page: searchParams.page,
