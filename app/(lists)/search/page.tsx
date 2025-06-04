@@ -11,13 +11,13 @@ interface SearchProps {
   }
 }
 
-export async function generateMetadata({ searchParams }: SearchProps) {
+export async function generateMetadata({ searchParams }: Readonly<SearchProps>) {
   return {
     title: `Search results for: ${searchParams.q}`,
   }
 }
 
-export default async function Search({ searchParams }: SearchProps) {
+export default async function Search({ searchParams }: Readonly<SearchProps>) {
   if (!searchParams.q) {
     return redirect("/")
   }
