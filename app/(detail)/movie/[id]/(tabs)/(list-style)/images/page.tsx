@@ -3,8 +3,8 @@ import { tmdb } from "@/tmdb/api"
 import { MediaImages } from "@/components/media-images"
 
 interface DetailImagesProps {
-  params: {
-    id: string
+  readonly params: {
+    readonly id: string
   }
 }
 
