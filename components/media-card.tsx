@@ -18,12 +18,14 @@ const Content: React.FC<ComponentProps<"div">> = ({
   )
 }
 
-const Title: React.FC<ComponentProps<"h2">> = ({ className, ...props }) => {
+const Title: React.FC<ComponentProps<"h2">> = ({ className, children, ...props }) => {
   return (
     <h2
       className={cn("line-clamp-1 text-sm font-medium md:text-lg", className)}
       {...props}
-    />
+    >
+      {children}
+    </h2>
   )
 }
 
