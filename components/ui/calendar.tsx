@@ -14,6 +14,55 @@ import {
 
 export type CalendarProps = React.ComponentProps<typeof DayPicker>
 
+function IconLeft(props: any) {
+  return <ChevronLeft className="size-4" />;
+}
+
+function IconRight(props: any) {
+  return <ChevronRight className="size-4" />;
+}
+
+type DropdownProps = {
+  children: React.ReactNode
+  value?: string | number
+  caption?: string
+  onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void
+  name?: string
+  [key: string]: any
+}
+function Dropdown({ children, value, caption, onChange, name, ...props }: DropdownProps) {
+  const options = children as any[]
+
+  const handleChange = (value: string) => {
+    onChange?.({
+      target: { value },
+    } as React.ChangeEvent<HTMLSelectElement>)
+  }
+
+  return (
+    <Select
+      defaultValue={value?.toString()}
+      onValueChange={handleChange}
+      {...props}
+    >
+      <SelectTrigger>
+        <SelectValue />
+      </SelectTrigger>
+
+      <SelectContent>
+        {options.map((child) => (
+          <SelectItem
+            key={child.props.value.toString()}
+            value={child.props.value.toString()}
+          >
+            {child.props.children}
+          </SelectItem>
+        ))}
+      </SelectContent>
+    </Select>
+  )
+}
+
 function Calendar({
   className,
   classNames,
@@ -63,40 +112,9 @@ function Calendar({
         ...classNames,
       }}
       components={{
-        IconLeft: ({ ...props }) => <ChevronLeft className="size-4" />,
-        IconRight: ({ ...props }) => <ChevronRight className="size-4" />,
-        Dropdown: ({ children, value, caption, onChange, name, ...props }) => {
-          const options = children as any[]
-
-          const handleChange = (value: string) => {
-            onChange?.({
-              target: { value },
-            } as React.ChangeEvent<HTMLSelectElement>)
-          }
-
-          return (
-            <Select
-              defaultValue={value?.toString()}
-              onValueChange={handleChange}
-              {...props}
-            >
-              <SelectTrigger>
-                <SelectValue />
-              </SelectTrigger>
-
-              <SelectContent>
-                {options.map((child) => (
-                  <SelectItem
-                    key={child.props.value.toString()}
-                    value={child.props.value.toString()}
-                  >
-                    {child.props.children}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          )
-        },
+        IconLeft: IconLeft,
+        IconRight: IconRight,
+        Dropdown: Dropdown,
       }}
       {...props}
     />
