@@ -14,10 +14,10 @@ import { MediaTrailerDialog } from "@/components/media-trailer-dialog"
 import { ScrollFixer } from "@/components/scroll-fixer"
 
 interface DetailLayoutProps {
-  params: {
-    id: string
+  readonly params: {
+    readonly id: string
   }
-  children: React.ReactNode
+  readonly children: React.ReactNode
 }
 
 export async function generateMetadata({ params }: DetailLayoutProps) {
