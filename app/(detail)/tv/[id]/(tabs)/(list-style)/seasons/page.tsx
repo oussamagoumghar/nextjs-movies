@@ -7,11 +7,8 @@ import { MediaPoster } from "@/components/media-poster"
 import { MediaRating } from "@/components/media-rating"
 
 interface DetailSeasonsProps {
-  params: {
-    id: string
-  }
-  searchParams: {
-    s: string
+  readonly params: {
+    readonly id: string
   }
 }
 
