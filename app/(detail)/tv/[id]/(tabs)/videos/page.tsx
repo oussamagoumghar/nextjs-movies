@@ -12,7 +12,7 @@ export const metadata = {
   title: "Videos",
 }
 
-export default async function DetailVideos({ params }: VideosProps) {
+export default async function DetailVideos({ params }: Readonly<VideosProps>) {
   const { results: videos } = await tmdb.tv.videos({
     id: params.id,
   })
