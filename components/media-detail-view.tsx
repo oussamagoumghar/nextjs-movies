@@ -77,12 +77,14 @@ const Genre: React.FC<BadgeProps> = ({ variant = "secondary", ...props }) => {
   return <Badge variant={variant} {...props} />
 }
 
-const Title: React.FC<ComponentProps<"h1">> = ({ className, ...props }) => {
+const Title: React.FC<ComponentProps<"h1">> = ({ className, children, ...props }) => {
   return (
     <h1
       className={cn("text-2xl font-medium xl:text-4xl", className)}
       {...props}
-    />
+    >
+      {children}
+    </h1>
   )
 }
 
