@@ -45,7 +45,7 @@ export const DiscoverFilterLang: React.FC<DiscoverFilterLangProps> = ({
             className="w-full justify-between text-left"
             variant="outline"
           >
-            {selected || "Select language..."}
+            {selected ?? "Select language..."}
             <ChevronsUpDown className="ml-2 size-4 shrink-0 opacity-50" />
           </Button>
         </PopoverTrigger>
