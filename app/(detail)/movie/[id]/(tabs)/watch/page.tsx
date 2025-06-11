@@ -1,8 +1,8 @@
 import { MediaWatchProviders } from "@/components/media-watch-providers"
 
 interface DetailWatchProps {
-  params: {
-    id: string
+  readonly params: {
+    readonly id: string
   }
 }
 
