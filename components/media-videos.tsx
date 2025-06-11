@@ -36,6 +36,7 @@ export const MediaVideos: React.FC<MediaVideosProps> = async ({ videos }) => {
               src={yt.video(key, true)}
               allow="autoplay; encrypted-media"
               allowFullScreen={true}
+              title={name}
             />
           </DialogContent>
         </Dialog>
