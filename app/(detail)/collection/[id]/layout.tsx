@@ -15,7 +15,7 @@ interface DetailLayoutProps {
   children: React.ReactNode
 }
 
-export async function generateMetadata({ params }: DetailLayoutProps) {
+export async function generateMetadata({ params }: Readonly<DetailLayoutProps>) {
   const { name } = await tmdb.collection.details({
     id: params.id,
   })
@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: DetailLayoutProps) {
 export default async function DetailLayout({
   params,
   children,
-}: DetailLayoutProps) {
+}: Readonly<DetailLayoutProps>) {
   const { id, name, overview, backdrop_path, poster_path } =
     await tmdb.collection.details({
       id: params.id,
