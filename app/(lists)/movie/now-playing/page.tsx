@@ -13,7 +13,7 @@ export async function generateMetadata() {
   }
 }
 
-export default async function NowPlaying({ searchParams }: ListPageProps) {
+export default async function NowPlaying({ searchParams }: Readonly<ListPageProps>) {
   return (
     <MovieList
       list="now_playing"
