@@ -42,15 +42,15 @@ export const TrendList: React.FC<TrendListProps> = async ({
       </div>
 
       <div className="grid-list">
-        {trends.map((item) =>
-          item.media_type === "tv" ? (
-            <TvCard key={item.id} {...item} />
-          ) : item.media_type === "person" ? (
-            <PersonCard key={item.id} {...item} />
-          ) : (
-            <MovieCard key={item.id} {...item} />
-          )
-        )}
+        {trends.map((item) => {
+          if (item.media_type === "tv") {
+            return <TvCard key={item.id} {...item} />
+          }
+          if (item.media_type === "person") {
+            return <PersonCard key={item.id} {...item} />
+          }
+          return <MovieCard key={item.id} {...item} />
+        })}
       </div>
 
       <ListPagination currentPage={currentPage} totalPages={totalPages} />
