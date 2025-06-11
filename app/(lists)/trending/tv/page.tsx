@@ -3,7 +3,7 @@ import { pages } from "@/config"
 import { TrendList } from "@/components/trend-list"
 
 interface TrendingPageProps {
-  searchParams?: Record<string, string>
+  readonly searchParams?: Record<string, string>
 }
 
 export async function generateMetadata() {
